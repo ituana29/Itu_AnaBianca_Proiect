@@ -1,0 +1,60 @@
+﻿@page 
+@model Itu_AnaBianca_Proiect.Pages.Oje.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Informatii Oje</h1>
+
+<p>
+    <a asp-page="Create">Creza</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Oja[0].Culoare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oja[0].Firma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oja[0].Pret)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oja[0].PublishingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oja[0].Publisher.PublisherName)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Oja) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Culoare)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firma)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pret)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublishingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Publisher.PublisherName)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Editeaza</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <img src="C:\Users\sipie\Desktop\Itu_AnaBianca_Proiect\Images\imagine1.jpg" style="width: 500px; height: 300px;"/>
+</table>
